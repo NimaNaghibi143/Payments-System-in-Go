@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" width="1000" height="460" role="img" aria-labelledby="title desc">
+  <title id="title">Five rules for money</title>
+  <desc id="desc">1. Money is an integer: store cents as an int64 plus a currency code, never a float. 2. Money is never created or destroyed: record every movement twice; balances are derived, never overwritten. 3. Every request can arrive twice: idempotency keys, so a retry replays the answer, never the payment. 4. Concurrent requests can't overspend: lock the rows, always in the same order. 5. A crash can happen between any two lines: sagas that resume, a transactional outbox, idempotent consumers.</desc>
+
+  <defs>
+    <style>
+      text { font-family: Inter, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .title { font-size: 28px; font-weight: 700; fill: #ffffff; }
+      .subtitle { font-size: 13px; fill: #a1a1aa; }
+      .header { font-size: 7.5px; font-weight: 600; letter-spacing: 1.6px; fill: #71717a; }
+      .num { font-size: 11px; font-weight: 600; fill: #60a5fa; }
+      .rule { font-size: 12px; font-weight: 600; fill: #f4f4f5; }
+      .so { font-size: 11.5px; fill: #a1a1aa; }
+      .sep { stroke: #232327; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="460" fill="#0d0d10"/>
+
+  <!-- Header -->
+  <text x="31" y="40" class="title">Five rules for money</text>
+  <text x="31" y="66" class="subtitle">What payment code can never get wrong</text>
+
+  <!-- Table -->
+  <rect x="31" y="103" width="938" height="328" rx="6" fill="#17171a" stroke="#222226"/>
+
+  <text x="107" y="131" class="header">THE RULE</text>
+  <text x="458" y="131" class="header">SO WE</text>
+
+  <line class="sep" x1="31" y1="151" x2="969" y2="151"/>
+  <line class="sep" x1="31" y1="207" x2="969" y2="207"/>
+  <line class="sep" x1="31" y1="263" x2="969" y2="263"/>
+  <line class="sep" x1="31" y1="319" x2="969" y2="319"/>
+  <line class="sep" x1="31" y1="375" x2="969" y2="375"/>
+
+  <text x="52" y="183" class="num">1</text>
+  <text x="107" y="183" class="rule">Money is an integer</text>
+  <text x="458" y="183" class="so">store cents as an int64, plus a currency code: never a float</text>
+
+  <text x="52" y="239" class="num">2</text>
+  <text x="107" y="239" class="rule">Money is never created or destroyed</text>
+  <text x="458" y="239" class="so">record every movement twice: balances are derived, never overwritten</text>
+
+  <text x="52" y="295" class="num">3</text>
+  <text x="107" y="295" class="rule">Every request can arrive twice</text>
+  <text x="458" y="295" class="so">idempotency keys: a retry replays the answer, never the payment</text>
+
+  <text x="52" y="351" class="num">4</text>
+  <text x="107" y="351" class="rule">Concurrent requests can't overspend</text>
+  <text x="458" y="351" class="so">lock the rows, always in the same order</text>
+
+  <text x="52" y="407" class="num">5</text>
+  <text x="107" y="407" class="rule">A crash can happen between any two lines</text>
+  <text x="458" y="407" class="so">sagas that resume · a transactional outbox · idempotent consumers</text>
+</svg>
