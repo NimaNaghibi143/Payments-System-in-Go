@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 1000 390" width="1000" height="390" role="img" aria-labelledby="title desc">
+  <title id="title">One repository, one module</title>
+  <desc id="desc">The project layout at the end of Part 1: cmd/ holds one small main per service; internal/platform/ holds shared config, logging, httpx, postgres, natsx, outbox and telemetry; internal/ has one tree per service; db/ holds migrations and queries per service; proto/ holds gRPC contracts; deploy/ holds postgres, prometheus and grafana config; api/ and scripts/ hold HTTP requests and helpers; plus docker-compose.yml, a Makefile and a single go.mod.</desc>
+
+  <defs>
+    <style>
+      text { font-family: Inter, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+      .mono text { font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace; font-size: 9px; }
+      .title { font-size: 28px; font-weight: 700; fill: #ffffff; }
+      .subtitle { font-size: 13px; fill: #a1a1aa; }
+      .panel { fill: #17171a; stroke: #2a2a2f; stroke-width: 1; }
+      .t { fill: #52525b; }
+      .d { fill: #8ec5ff; font-weight: 600; }
+      .f { fill: #8a8a93; }
+      .c { fill: #a1a1aa; }
+      .name { font-size: 12px; font-weight: 600; fill: #f4f4f5; }
+      .detail { font-size: 8.5px; fill: #a1a1aa; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="390" fill="#0d0d10"/>
+
+  <!-- Header -->
+  <text x="33" y="38" class="title">One repository, one module</text>
+  <text x="33" y="62" class="subtitle">Where we're headed: the project at the end of Part 1</text>
+
+  <!-- Tree -->
+  <rect class="panel" x="33" y="90" width="422" height="270" rx="6"/>
+  <g class="mono">
+    <text x="50" y="116"><tspan class="d">payments/</tspan></text>
+    <text x="50" y="133"><tspan class="t">├ </tspan><tspan class="d">cmd/</tspan></text>
+    <text x="50" y="150"><tspan class="t">│  └ </tspan><tspan class="f">wallet/ auth/ transfer/ notification/ gateway/</tspan></text>
+    <text x="50" y="167"><tspan class="t">├ </tspan><tspan class="d">internal/</tspan></text>
+    <text x="50" y="185"><tspan class="t">│  ├ </tspan><tspan class="d">platform/</tspan></text>
+    <text x="50" y="202"><tspan class="t">│  │</tspan></text>
+    <text x="50" y="219"><tspan class="t">│  └ </tspan><tspan class="f">wallet/ auth/ …</tspan></text>
+    <text x="50" y="237"><tspan class="t">├ </tspan><tspan class="d">db/</tspan><tspan class="f">&lt;service&gt;/</tspan></text>
+    <text x="50" y="254"><tspan class="t">├ </tspan><tspan class="d">proto/</tspan></text>
+    <text x="50" y="271"><tspan class="t">├ </tspan><tspan class="d">deploy/</tspan></text>
+    <text x="50" y="288"><tspan class="t">├ </tspan><tspan class="d">api/  scripts/</tspan></text>
+    <text x="50" y="306"><tspan class="t">├ </tspan><tspan class="f">docker-compose.yml</tspan></text>
+    <text x="50" y="323"><tspan class="t">├ </tspan><tspan class="f">Makefile</tspan></text>
+    <text x="50" y="340"><tspan class="t">└ </tspan><tspan class="f">go.mod</tspan></text>
+
+    <text x="186" y="133" class="c">one small main per service</text>
+    <text x="186" y="185" class="c">shared: config, logging, httpx,</text>
+    <text x="186" y="202" class="c">postgres, natsx, outbox, telemetry</text>
+    <text x="186" y="219" class="c">one tree per service</text>
+    <text x="186" y="237" class="c">migrations and queries</text>
+    <text x="186" y="254" class="c">gRPC contracts</text>
+    <text x="186" y="271" class="c">postgres · prometheus · grafana</text>
+    <text x="186" y="288" class="c">HTTP requests · helpers</text>
+    <text x="186" y="340" class="c">one module for everything</text>
+  </g>
+
+  <!-- Notes -->
+  <rect class="panel" x="482" y="90" width="481" height="62" rx="6"/>
+  <circle cx="497" cy="107" r="2.5" fill="#60a5fa"/>
+  <text x="506" y="111" class="name">One module</text>
+  <text x="506" y="127" class="detail">one go.mod, one version of every dependency</text>
+  <text x="506" y="139" class="detail">a contract and both sides of it change in one commit, tested together</text>
+
+  <rect class="panel" x="482" y="171" width="481" height="50" rx="6"/>
+  <circle cx="497" cy="188" r="2.5" fill="#34d399"/>
+  <text x="506" y="192" class="name">internal/ is enforced</text>
+  <text x="506" y="208" class="detail">the compiler refuses imports of it from outside the module</text>
+
+  <rect class="panel" x="482" y="240.5" width="481" height="50" rx="6"/>
+  <circle cx="497" cy="257.5" r="2.5" fill="#facc15"/>
+  <text x="506" y="261.5" class="name">The trade-off: coupling</text>
+  <text x="506" y="277.5" class="detail">so services never import each other's internals · they talk over the network, through contracts</text>
+
+  <rect class="panel" x="482" y="310" width="481" height="50" rx="6"/>
+  <circle cx="497" cy="327" r="2.5" fill="#a1a1aa"/>
+  <text x="506" y="331" class="name">The alternative: a repository per service</text>
+  <text x="506" y="347" class="detail">full independence · but every shared change is a library release, and version bumps across five repos</text>
+</svg>

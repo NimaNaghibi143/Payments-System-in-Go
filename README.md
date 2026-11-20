@@ -13,3 +13,7 @@ A payments platform: wallets, transfers, events and observability.
 ## The stack
 
 ![The stack](docs/stack.svg)
+
+## Project layout
+
+![One repository, one module](docs/repo-layout.svg)
